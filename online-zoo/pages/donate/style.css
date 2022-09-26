@@ -16,7 +16,7 @@
     font-display: swap;
 }
 
-
+::-webkit-scrollbar { width: 0;}
 
 *,
 *::before,
@@ -490,8 +490,15 @@ body._lock {
     backdrop-filter: blur(2px);
 }
 
-.number__amount > .placeholder {
-    color: #4B9200;
+::placeholder {
+    color: #929699;
+    font-size: 16px;
+    padding-left: 9px;
+}
+
+#textField {
+    background: url(../../assets/icons/Vectordol.png) no-repeat 246px 50%; 
+      
 }
 
 .input__radio {
@@ -648,12 +655,18 @@ body._lock {
     margin-left: 122px;
 }
 
-.footer__school p {
+.footer__school a {
     color: #FFFFFF;
     font-size: 16px;
     font-weight: 100;
     font-style: normal;
     line-height: 216%;
+    display: flex;
+}
+
+.footer__school:hover a{
+    color: #4B9200;
+    text-decoration: underline;
 }
 
 .footer__wrapper{
@@ -669,15 +682,17 @@ body._lock {
     background-color: #4B9200;
     cursor: pointer;
 }
-.circle__image:hover ~.inner>.footer__networks__text{
+
+.footer__networks .circle__image:hover + .footer__networks__text{
     color: #4B9200;
-    cursor: pointer;
 }
-.footer__networks__text:hover{
+
+.footer__networks__text:hover {
     color: #4B9200;
     cursor: pointer;
 }
 
-.footer__networks__text:hover~.circle__image{
+.footer__networks__text:hover + .footer__networks .circle__image {
     color: #4B9200;
-  }
+}
+
