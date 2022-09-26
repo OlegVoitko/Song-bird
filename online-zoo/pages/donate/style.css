@@ -118,6 +118,11 @@ body._lock {
     color: #F9804B;    
 }
 
+.navigation__link__active {
+    color: #F9804B;
+    cursor: default;  
+}
+
 
 
 .header__navigation {
