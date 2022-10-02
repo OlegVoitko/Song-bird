@@ -527,7 +527,7 @@ body._lock {
     align-items: center;
 }
 
-.monthly__color {
+.monthly__color, .once__color {
     appearance: none;
     width: 16px;
     height: 16px;
@@ -539,6 +539,27 @@ body._lock {
     background: #4b9200;
     border: 1px solid #4b9200;
 }
+.once__color:checked {
+    background: #4b9200;
+    border: 1px solid #4b9200;
+}
+
+
+.input__monthly__color {
+    color: #FFFFFF;
+}
+.monthly__color:checked~.input__monthly__color {
+    color: #333b41;
+}
+
+.input__once__color {
+    color: #FFFFFF;
+}
+.once__color:checked~.input__once__color {
+    color: #333b41;
+}
+
+
 
 .input__radio__once {
     column-gap: 9px;
