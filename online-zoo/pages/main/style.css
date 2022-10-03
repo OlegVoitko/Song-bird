@@ -176,7 +176,7 @@ body._lock {
     }
 }
 
-            @media (max-width: 830px){
+            @media (max-width: 999px){
                 .header__burger{
                     display: block;
                     cursor: pointer;
@@ -189,7 +189,7 @@ body._lock {
                 }    
             }
 
-@media (max-width: 940px){
+@media (max-width: 999px){
     .logo__border {
         border: none;
         height: 24px;
@@ -1159,6 +1159,7 @@ h5 {
     .pick__friend__content {
         padding-top: 10px;
         height: 741px;
+        width: 632px;
     }
 
     h5 {
