@@ -23,19 +23,20 @@
                 <a href="../main/index.html" class="logo">
                     <h1>PetStory 
                         <br>online
-                        <img class="bamboo" src="../../assets/icons/bamboo.png" alt="">
+                        <img class="bamboo bamboo__header" src="../../assets/icons/bamboo.png" alt="">
                     </h1>                    
                 </a>
             </div>           
             <nav class="header__navigation">
                 <ul class="navigation navigation__header">
                     <li class="navigation__link ">
-                        <a href="../main/index.html" class="navigation__link__menu">About</a>
+                        <a href="../main/index.html" class="navigation__link__menu  menu__header">About</a>
                     </li>
-                    <li class="navigation__link"><a href="#d" class="navigation__link__menu">Map</a></li>
-                    <li class="navigation__link"><a href="#d" class="navigation__link__menu">Zoos</a></li>
-                    <li class="navigation__link"><a href="#donate" class="navigation__link__menu navigation__link__active">Donate</a></li>
-                    <li class="navigation__link "><a href="#d" class="navigation__link__menu">Contact us</a></li>
+                    <li class="navigation__link"><a href="#d" class="navigation__link__menu menu__header">Map</a></li>
+                    <li class="navigation__link"><a href="#d" class="navigation__link__menu menu__header">Zoos</a></li>
+                    <li class="navigation__link"><a href="#donate" class="navigation__link__menu navigation__link__active menu__header">Donate</a></li>
+                    <li class="navigation__link "><a href="#d" class="navigation__link__menu menu__header">Contact us</a></li>
+                    <li class="navigation__link navigation__link__burger"><a href="https://www.figma.com/" class="navigation__link navigation__link__menu color__figma">Designed by ©</a></li>
                 </ul>
             </nav>
             <a href="https://www.figma.com/" class="figma navigation__link navigation__link__menu">Designed by ©</a>
@@ -70,17 +71,26 @@
                             <img class="animals__widget" src="../../assets/images/animals-widget.png" alt="animals-widget">
                         </div>
                         <p class="amount">Amount</p>
+
+                        <input type="radio" name="point" id="slide1" value="5000">
+                        <input type="radio" name="point" id="slide2" value="2000">
+                        <input type="radio" name="point" id="slide3" value="1000">
+                        <input type="radio" name="point" id="slide4" value="500">
+                        <input type="radio" name="point" id="slide5" value="250">
+                        <input type="radio" name="point" id="slide6" value="100" checked>
+                        <input type="radio" name="point" id="slide7" value="50">
+                        <input type="radio" name="point" id="slide8" value="25">
+
                         <div class="pick__friend__rectangle1">
                             <div class="pick__friend__rectangle2">
-                                <!-- <span class="circle1"></span>
-                                <span class="circle2"></span>
-                                <span class="circle3"></span>
-                                <span class="circle4"></span>
-                                <span class="circle5"></span>
-                                <span class="circle6"></span>
-                                <span class="circle7"></span>
-                                <span class="circle8"></span> -->
-                            
+
+                                <!-- <div class="text">
+                                    <div class="texts" id="text1">First picture</div>
+                                    <div class="texts" id="text2">Second picture</div>
+                                    <div class="texts" id="text3">Third picture</div>
+                                    <div class="texts" id="text4">Cдвигаю div на один пиксель Сайт:</div>
+                                    <div class="texts" id="text5">Когда вернул div на прежнее место</div>
+                                </div>                             -->
 
                                 <div class="buttons">
                                     <label for="slide1" class="labelButton" id="s1"><div><span></span></div></label>
@@ -91,9 +101,10 @@
                                     <label for="slide6" class="labelButton" id="s6"><div><span></span></div></label>
                                     <label for="slide7" class="labelButton" id="s7"><div><span></span></div></label>
                                     <label for="slide8" class="labelButton" id="s8"><div><span></span></div></label>
-                                </div>
+                                </div>    
                             </div>
-                        </div>    
+                        </div>  
+
                             <div class="price">
                                 <div class="price__image" id="p1">                                    
                                     <p>$5000</p>
@@ -122,12 +133,12 @@
                             </div>
                         
                            
-                            <form action="handler">
-                                <p><label for="textField"></label>
-                                    <input id="textField" class="number__amount" type="number" max="9999" placeholder="Another amount" >
+                            <form action="handler" class="handlerTest">
+                                <p class="test"><label for="textField"></label>
+                                    <input id="textField" value="" class="number__amount" type="number" max="9999" placeholder="Another amount"> 
                                 </p>
                             </form>
-                        
+                            <!-- oninput="if (value.length>= 5) value = value.slice (0,4)" -->
                         
                         <div class="input__radio">
                             <div class="input__radio__monthly">
@@ -275,5 +286,6 @@
             </div>            
         </div>        
     </footer>
+    <script src="../donate/script.js"></script>
 </body>
 </html>
