@@ -462,7 +462,7 @@ let rangeValue = function(){
         }
     }
 
-    if(screenWidth >= 1000){
+    if(screenWidth >= 1000 && screenWidth <= 1599){
         if(newValue === '0') {
             let target = document.getElementById('testimonials__items__slider').style.transform = 'translateX(2px)'       
         }
