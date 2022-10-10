@@ -456,7 +456,7 @@ let rangeValue = function(){
         }else if(newValue === '5'){
             let target = document.getElementById('testimonials__items__slider').style.transform = 'translateX(-1463px)' 
         }else if(newValue === '6'){
-            let target = document.getElementById('testimonials__items__slider').style.transform = 'translateX(-1745px)' 
+            let target = document.getElementById('testimonials__items__slider').style.transform = 'translateX(-1754px)' 
         }else if(newValue === '7'){
             let target = document.getElementById('testimonials__items__slider').style.transform = 'translateX(-2047px)' 
         }
