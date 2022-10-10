@@ -95,7 +95,7 @@ let radioValue = document.getElementsByName('point')
         } else radioValue[i].checked = false
     }
     if (this.value.length > 4) {
-        this.value = this.value.slice(0,0); 
+        this.value = this.value.slice(0, 0); 
     }
 };
 
