@@ -904,7 +904,7 @@ h4 {
 
 .animals__card .image__hover:hover + .animals__text {
     color: rgb(255, 255, 255);
-    animation: moving 0.6s normal forwards ease-in-out;
+    animation: moving 3s normal forwards ease-in-out;
     transform: scale(1.05);
 }
 
@@ -980,9 +980,9 @@ h4 {
         display: none;
     } */
    
-    .card__pandas, .card__eagles, .card__cheetahs__desktop {
+    /* .card__pandas, .card__eagles, .card__cheetahs__desktop {
         order: -1;
-    }
+    } */
 
     .animals__wrapper {
         /* max-width: 945px; */
@@ -1596,6 +1596,10 @@ h6 {
         flex-direction: column;
         row-gap: 18px;
         align-items: center;
+        overflow: scroll;
+        height: 396px;
+        margin: auto;
+        max-width: 616px;
     }
 
     .testimonials__card {
@@ -1617,9 +1621,9 @@ h6 {
         padding: 0px 20px;
     }
 
-    .testimonials__card__oskar {
+    /* .testimonials__card__oskar {
         display: none;
-    }
+    } */
 
     .testimonials__card__oska {
         display: block;
@@ -1637,14 +1641,14 @@ h6 {
         display: contents;
     }
 
-    .testimonials__card__oska {
+    /* .testimonials__card__oska {
         display: none;
-    }
+    } */
 }
     
 @media (max-width: 639px){
     .testimonials__card {
-        width: 299px;
+        width: 292px;
         height: 109px;
     }
 
@@ -2127,7 +2131,7 @@ h6 {
         left: -600px;                        
     }
 
-    .card__penguins, .card__alligators, .card__pandas {
+    .card__sloth__none, .card__alligators__none, .card__gorillas__none {
         display: none;
     }    
 

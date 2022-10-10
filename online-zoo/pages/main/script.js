@@ -147,7 +147,7 @@ let dataAnimals = [
       description: "Native to Antarctica",      
     },     
   ];
-  console.log(dataAnimals)
+ 
 
 // const sliderCards = document.querySelector(".slider__cards");
 // const sliderArrowLeft  = document.querySelector("#button__arrow__left");
@@ -369,46 +369,66 @@ CAROUSEL.addEventListener("animationend", (animationEvent) => {
   } else {
     CAROUSEL.classList.remove("transition-right");
     changedItem = ITEM_RIGHT;
-    document.querySelector("#item-active").innerHTML = ITEM_RIGHT.innerHTML;
-
-    //  console.log(document.body.childNodes.length)
-    // let sortByAge = (a, b) => a.name > b.name ? 1 : -1;
-    // (changedItem.children).sort(sortByAge); 
-    // console.log(changedItem.children);
-    
+    document.querySelector("#item-active").innerHTML = ITEM_RIGHT.innerHTML;      
   }
     
-//   changedItem.innerHTML = "";
+//   changedItem.innerHTML = "";    
 //   for (let i = 0; i < 3; i++) {
 //     const card = createCardTemplate();
 //     card.innerText = Math.floor(Math.random() * 8);
 //     changedItem.appendChild(card);
 //   }
+
+              
+    let card = document.createDocumentFragment();
+    while (changedItem.children.length) {
+        card.appendChild(changedItem.children[Math.floor(Math.random() * changedItem.children.length)]);
+    }
+    changedItem.appendChild(card);  
+
+
   
   BTN_LEFT.addEventListener("click", moveLeft);
   BTN_RIGHT.addEventListener("click", moveRight);
 })
 
-let booksList = document.querySelector(`.item`);
-let liveBooks = booksList.children;
-// liveBooks.sort((a, b) => a.name > b.name ? 1 : -1);
-
-console.log(liveBooks);
-let arr = [];
-for(let i = 0; i < liveBooks.length; i++) {
-    arr.push(liveBooks[i])
-}
-console.log(arr);
-
-let temp1 = arr[2];
-arr[2] = arr[4];
-arr[4] = temp1;
-
-// let arrSort = arr.sort((a, b) => a > b ? 1 : -1);
-// console.log(arr);
+// onload = function left(){
+//     var parent = document.getElementById("item-left");
+//     console.log(parent)    
+//     var frag = document.createDocumentFragment();
+//     while (parent.children.length) {
+//         frag.appendChild(parent.children[Math.floor(Math.random() * parent.children.length)]);
+//     }
+//     parent.appendChild(frag);
+// }
 
 
 
+
+
+// let booksList = document.querySelector(`.item`);
+// let liveBooks = booksList.children;
+
+// console.log(liveBooks);
+
+// let arr = [];
+// for(let i = 0; i < liveBooks.length; i++) {
+//     arr.push(liveBooks[i])
+// }
+// console.log(Object.values(arr));
+
+// function shuffleArray(arr) {
+//     for (var i = arr.length - 1; i > 0; i--) {
+//         var j = Math.floor(Math.random() * (i + 1));
+//         var temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//     }
+//     return arr
+// }
+// console.log(shuffleArray(arr))
+
+// console.log(Object.fromEntries(arr));
 
 
 
