@@ -1,0 +1,111 @@
+.body {
+    text-align: center;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 400px;
+    user-select: none;
+}
+
+h1 {
+    font-family: Arial;
+}
+
+.header {
+    display: flex;    
+    justify-content: center;    
+    align-items: center;
+    /* width: 100vw; */
+    padding: 10px 0;
+    color: #fff;
+    background-color: rgba(0,0,0,.5);
+}
+
+.ctrl-panel {
+    display: flex;    
+    justify-content: center;    
+    align-items: center;
+    flex-wrap: wrap;    
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+button, input{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-size: 17px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: #000;
+}
+
+.Size{
+    border: #000;
+    font-size: 15px;
+    width: auto;  
+
+    
+}
+
+.field-size {
+    width: 60px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.field {    
+    width: 100%;
+    padding-bottom: 100%;
+    margin-bottom: 1.5rem;
+    background-color: aquamarine;
+    /* width: 400px;
+    height: 400px; */
+    border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+    margin: 10px auto;
+}
+
+.cell {
+    box-sizing: border-box;
+    width: 25%;
+    height: 25%;
+    /* width: 100px;
+    height: 100px; */
+    border: 2px solid rgb(33, 49, 10);
+    border-radius: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    transition: transform 0.2s;
+
+    margin: 0;
+    padding: 0;    
+}
+
+.cel--active{
+    opacity: 0.5;
+}
+
+.button {
+    margin: 20px;
+    font-size: 15px;
+    font-family: Arial;
+}
+
+.fifteenWon {
+    filter: brightness(500%);
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial;
+    font-size: 20px;
+}
