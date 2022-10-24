@@ -13,45 +13,6 @@ const ctrlPanel = document.createElement("div");
 ctrlPanel.className = "ctrl-panel";
 header.append(ctrlPanel);
 
-// const select = document.createElement("select");
-// select.className = "field-size";
-// ctrlPanel.append(select);
-
-// const option = document.createElement("option");
-// option.innerHTML = "Size";
-// select.append(option);
-
-// const option3 = document.createElement("option");
-// option3.className = 'option3'
-// option3.value = 3;
-// option3.innerHTML = "3 x 3";
-// select.append(option3);
-
-// const option4 = document.createElement("option");
-// option4.value = 4;
-// option4.innerHTML = "4 x 4";
-// select.append(option4);
-
-// const option5 = document.createElement("option");
-// option5.value = 5;
-// option5.innerHTML = "5 x 5";
-// select.append(option5);
-
-// const option6 = document.createElement("option");
-// option6.value = 6;
-// option6.innerHTML = "6 x 6";
-// select.append(option6);
-
-// const option7 = document.createElement("option");
-// option7.value = 7;
-// option7.innerHTML = "7 x 7";
-// select.append(option7);
-
-// const option8 = document.createElement("option");
-// option8.value = 8;
-// option8.innerHTML = "8 x 8";
-// select.append(option8);
-
 const newGame = document.createElement("button");
 newGame.className = "ctrl-panel-btns";
 newGame.id = "shuffle";
@@ -67,6 +28,11 @@ toggleButton.style.color = 'green'
 toggleButton.id = 'elem';
 ctrlPanel.append(toggleButton);
 
+const result = document.createElement("button");
+result.className = "result";
+result.id = "Result";
+result.innerHTML = "Result";
+ctrlPanel.append(result);
 
 const containerNode = document.createElement("div"); //field
 containerNode.className = "fiften field dropZone";
@@ -128,19 +94,22 @@ button8.innerHTML = "8 x 8";
 button8.id = 'size8'
 document.body.append(button8);
 
-let sizeSize = 0;
+const containerSize = document.createElement("div");
+containerSize.className = "containerSize";
 
-if(document.getElementById('size3').addEventListener('click', () => {    
- 
-}));
-  
+document.body.append(containerSize);
+
+// for (let i = 3; i <= 8; i++) {                
+//   const buttonChangeSize = document.createElement('button');
+//   buttonChangeSize.className = 'Size';  
+//   buttonChangeSize.id = i;    
+//   buttonChangeSize.innerHTML = i + 'x' + i;  
+//   containerSize.append(buttonChangeSize);
+// }
 
 
 let sizeContainer = 16
 
-
-
- 
 
 
 for (let i = 1; i <= sizeContainer; i++) {                 //9,16,25,36,49,64
@@ -215,8 +184,8 @@ containerNode.addEventListener('click', (event) => {
     const buttonNumber = Number(buttonNode.innerHTML)
     const buttonCoords = findCoordinatesByNumber(buttonNumber, matrix);
     const blankCoords = findCoordinatesByNumber(blankNumber, matrix);    
-    const isValid = isValidForSwap(buttonCoords, blankCoords);
-
+    const isValid = isValidForSwap(buttonCoords, blankCoords);    
+    
     if(isValid === true){        
         move.innerHTML = 'Moves: ' + moves.push(isValid)
         
@@ -478,214 +447,121 @@ window.onload = () => {
     }    
   };
 
-//drag & drop
-// const dragItem = document.querySelectorAll('.dragItem');
-// const dropZones = document.querySelectorAll('.dropZone');
 
-// dragItem.forEach(dragItem => {
-//   dragItem.addEventListener('dragstart', handlerDragstart)
-//   dragItem.addEventListener('dragend', handlerDragend)
-//   dragItem.addEventListener('drag', handlerDrag)
-// })
+// drag & drop
+const dragItem = document.querySelectorAll('.dragItem');
+const dropZone = document.querySelector('.dropZone');
+
+dragItem.forEach(dragItem => {
+  dragItem.addEventListener('dragstart', handlerDragstart)
+  dragItem.addEventListener('dragend', handlerDragend)
+  dragItem.addEventListener('drag', handlerDrag)
+})
 
 // dropZones.forEach((dropZone) => {
-//   dropZone.addEventListener('dragenter', handlerDragenter)
-//   dropZone.addEventListener('dragleave', handlerDragleave)
-//   dropZone.addEventListener('dragover', handlerDragover)
-//   dropZone.addEventListener('drop', handlerDrop)
-//   console.log(dropZone)
+  dropZone.addEventListener('dragenter', handlerDragenter)
+  dropZone.addEventListener('dragleave', handlerDragleave)
+  dropZone.addEventListener('dragover', handlerDragover)
+  dropZone.addEventListener('drop', handlerDrop)
+  console.log(dropZone)
 // })
 
-// function handlerDragstart(event) {
-//   event.dataTransfer.setData('dragItem', this.id)
-//   this.classList.add('cel--active')
+function handlerDragstart(event) {
+  event.dataTransfer.setData('dragItem', this.id)
+  this.classList.add('cel--active')
+}
+
+function handlerDragend(event) {
+  this.classList.remove('cel--active')
+}
+
+function handlerDrag(event) {
+  // console.log('drag')
+}
+
+function handlerDragenter(event) {
+  console.log('enter')
+  event.preventDefault()
+}
+
+function handlerDragleave(event) {
+  console.log('dragleave', this)
+}
+
+function handlerDragover(event) {
+  event.preventDefault()
+}
+
+function handlerDrop(event) {
+  console.log('drop')
+  //  const dragFlag = event.dataTransfer.getData('dragItem')  
+  //  const dragItem = document.querySelector(`[id="${dragFlag}"]`)   
+  // this.append('dragItem')    
+  // let itemId = event.dataTransfer.getData('dragItem');
+  // event.target.append(document.getElementById(itemId))
+  // console.log(itemId)
+
+}
+
+result.addEventListener('click', () => showTopList());
+
+function showTopList() {
+  const blackOut = document.createElement('div');
+    blackOut.classList.add('blackout');
+    document.body.append(blackOut);
+
+    const popUp = document.createElement('div');
+    popUp.classList.add('popup');
+    blackOut.append(popUp);
+
+    popUp.append(document.createElement('h2'));
+    document.querySelector('h2').innerHTML = "Top List by moves";
+
+    document.querySelector('.blackout').addEventListener('click', () => {
+      console.log('no')
+      document.querySelector('.popup').remove();
+      document.querySelector('.blackout').remove();  
+    });
+  }
+
+
+
+
+
+//  const dragItem = document.querySelectorAll('.dragItem');
+//  const dropZones = document.querySelector('.dropZone');
+
+//  console.log(dragItem)
+
+//  dropZones.ondragover = allowDrop;
+
+//  function allowDrop(event) {
+//   event.preventDefault();
+//  }
+
+//  dragItem.ondragstart = drag;
+
+//  function drag (event){
+//   event.dataTransfer.setData('dragItem', event.target.id)
+//  }
+
+//  dropZones.ondrop = drop;
+
+// function drop(event) {
+//   let itemId = event.dataTransfer.getData('dragItem');
+//   console.log(itemId)
+//   event.target.append(document.getElementById(itemId))
 // }
 
-// function handlerDragend(event) {
-//   this.classList.remove('cel--active')
-// }
 
-// function handlerDrag(event) {
-//   // console.log('drag')
-// }
-
-// function handlerDragenter(event) {
-//   console.log('enter')
-//   event.preventDefault()
-// }
-
-// function handlerDragleave(event) {
-//   console.log('dragleave', this)
-// }
-
-// function handlerDragover(event) {
-//   event.preventDefault()
-// }
-
-// function handlerDrop(event) {
-//   console.log('drop')
-//   //  const dragFlag = event.dataTransfer.getData(`[id="${15}"]`)  
-//   //  const dragItem = document.querySelector(`[id="${dragFlag}"]`)  
-//   this.append('dragItem', this.id)    
-// }
+// function buttonChangeSizeContainer(sizeContainer){
+// buttonChangeSizeContainer(16)
 
 
-
-
-
-if(document.getElementById('size3').addEventListener('click', () => {
-  console.log(1)
  
- }));
- console.log(sizeContainer)
+// button3.addEventListener('click', (event) => {  
+//   sizeContainer = event.target.closest('button').innerHTML[0]**2    
+//   buttonChangeSizeContainer(9)    
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let button = toggleButton;
-
-// function setupSynth() {
-//   window.synth = new Tone.Synth({
-//     oscillator: {
-//       type: 'sine',
-//       modulationFrequency: 0.5
-//     },
-//     envelope: {
-//       attack: 0,
-//       decay: 0.2,
-//       sustain: 0,
-//       release: 0.5,
-//     }
-//   }).toMaster();
-// }
-
-// function boopMe() {
-//   if (!window.synth) {
-//     setupSynth();
-//   }
-  
-//   window.synth.triggerAttackRelease(600, '9n');
-// }
-
-// button.addEventListener('touchstart', function(e) {
-//   e.stopPropagation();
-//   e.preventDefault();
-//   boopMe();
 // });
-// button.addEventListener('mousedown', boopMe);
 
-
-
-// function playSound(sound) {
-//     var song = document.getElementById(sound);
-//     song.volume = 1;
-//     if (song.paused) {
-//       song.play();
-//     } else {
-//       song.pause();
-//     }
-//   }
-
-
-// const cellSize = 100;
-
-// const empty = {
-//     value: 0,
-//     top: 0,
-//     left: 0
-// };
-
-// const cells = [];
-// cells.push(empty);
-
-// function move(index) {
-//     const cell = cells[index];
-//     const leftDiff = Math.abs(empty.left - cell.left);
-//     const topDiff = Math.abs(empty.top - cell.top);
-
-//     if(leftDiff + topDiff > 1) {
-//         return;
-//     }
-
-//     cell.element.style.left = `${empty.left * cellSize}px`;
-//     cell.element.style.top = `${empty.top * cellSize}px`;
-
-//     const emptyLeft = empty.left;
-//     const emptyTop = empty.top;
-//     empty.left = cell.left;
-//     empty.top = cell.top;
-//     cell.left = emptyLeft;
-//     cell.top = emptyTop;
-
-//     const isFinished = cells.every(cell => {
-//         return cell.value === cell.top * 4 + cell.left;
-//     })    
-
-//     if (isFinished) {
-//         alert('You won')
-//     }
-// }
-
-// let numbers = [...Array(15).keys()].sort(() => Math.random() - 0.5);//24
-// console.log(numbers)
-
-// for (let i = 1; i <= 15; i++) {//24
-//     const cell = document.createElement('div');
-//     const value = numbers[i - 1] + 1;
-//     cell.className = 'cell';
-//     cell.innerHTML = value;  
-
-//     const left = i % 4;//5
-//     const top = (i - left) / 4//5
-
-//     cells.push({
-//         value: value,
-//         left: left,
-//         top: top,
-//         element: cell
-//     });
-    
-//     cell.style.left = `${left * cellSize}px`;
-//     cell.style.top = `${top * cellSize}px`;
-
-//     field.append(cell);
-
-//     cell.addEventListener('click', () => {
-//         move(i);        
-//     })
-// }
-
-// const button = document.createElement("button");
-// button.className = "button";
-// button.innerHTML = "Shuffle and start";
-// document.body.append(button);
-
-// button.onclick = function() {
-//     numbers = [...Array(15).keys()].sort(() => Math.random() - 0.5);
-//     console.log(numbers)
-      
-//   };
