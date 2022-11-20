@@ -177,6 +177,7 @@ document.getElementById('shuffle').addEventListener('click', () => {
 let blankNumber = sizeContainer;                                //9,16,25,36,49,64
 containerNode.addEventListener('click', (event) => {
     const buttonNode = event.target.closest('button');
+    console.log(buttonNode)
     if(!buttonNode) {
         return
     }       
