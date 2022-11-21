@@ -156,10 +156,6 @@ li {
     background-color: #444;
 }
 
-.answer > li{
-    /* border: solid black 0.5px; */
-}
-
 .false{
     background-color: brown;
 }
@@ -182,11 +178,13 @@ li {
 }
 
 .plug{
-    max-width: 200px;
+    width: 100%;
+    height: 100%;
 }
 
 .quiz__image{
-    /* display: flex; */
+    width: 200px;
+    height: 159px;
 }
 
 .button{
@@ -274,6 +272,7 @@ li {
     height: 50px;
     border: blue;    
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .popup._active, .popup1._active{
@@ -302,7 +301,7 @@ li {
 
 /* audio custom*/
 
-.audio-player {
+/* .audio-player {
     height: 50px;
     width: 350px;
     background: #444;
@@ -415,7 +414,7 @@ li {
 .audio-player .controls .volume-container:hover .volume-slider {
     left: -123px;
     width: 120px;
-}
+} */
 
 
 /*======================*/

@@ -381,7 +381,14 @@ const answer = document.querySelector(".answer");
 const logoScore = document.querySelector(".score");
 const plug = document.querySelector(".plug");
 const quizName = document.querySelector(".quiz__name");
+const POPUP1 = document.querySelector(".popup1");
+const CARD_POPUP1 = document.querySelector(".buttonPopup1");
+const quizPlayer =  document.querySelector(".quiz__player")
+const scorePopup = document.querySelector('.addScore')
+
+
 let arr = 5;
+let res = 0
 let level = 0;
 
 // setTimeout("document.getElementById('popup').style.display='block'", 1000);
@@ -399,7 +406,7 @@ const disabledButton = document.getElementById("button");
 // disabledButton.disabled = true;
 
 const answerHandler = (e) => {
-  console.log(e.target);
+//   console.log(e.target);
   const selectedId = e.target.dataset.id;
 
   selectedBird = birdsData[level][selectedId - 1];
@@ -407,18 +414,20 @@ const answerHandler = (e) => {
   generateContent();
 
   if (generatedBird.id == selectedId) {
-    console.log("Правильно");
+    // console.log("Правильно");    
     deleteOnclick();
     trueAnswerHandler(e.target);
     trueSound();
     togglePlay();
     disabledButton.disabled = false;
-    disabledButton.style.backgroundColor="#0f0"
+    disabledButton.style.backgroundColor="#00bc8c"
   } else {
     falseAnswerHandler(e.target);
     falseSound();
-    console.log("Неправильно");
+    // console.log("Неправильно");
   }
+  
+  console.log(arr, 'res')
 };
 
 let selectedBird = null;
@@ -426,12 +435,14 @@ let generatedBird = null;
 
 const levelIndicators = document.querySelectorAll(".navigation__link");
 
-const startLevel = (birds) => {
+const startLevel = (birds) => {  
+  let rand =  Math.round(0 - 0.5 + Math.random() * (6 - 0 + 1));
   disabledButton.disabled = true;
-  console.log(levelIndicators);
-  console.log(level, "level");
-  generatedBird = birds[randomInteger(0, 6)];
-  console.log(generatedBird, "generatedBird")
+  disabledButton.style.backgroundColor="#0000"
+
+  generatedBird = birds[rand];//randomInteger(0, 6)
+
+  quizPlayer.src = generatedBird.audio;
 
   levelIndicators[level].classList.toggle("_active");
   if (level !== 0) {
@@ -439,12 +450,11 @@ const startLevel = (birds) => {
   }
 
   plug.src = "./img/bird.06a46938.jpg";
+  plug.alt = "птичка"
   quizName.innerHTML = "**********"
 
   trueAnswer.innerHTML = "Послушайте плеер. Выберите птицу из списка";
-
-  document.querySelector(".quiz__player").src = generatedBird.audio;
-
+  
   answer.innerHTML = "";
   birds.map((bird) => {
     let birdElement = document.createElement("li");
@@ -460,7 +470,15 @@ const startLevel = (birds) => {
     birdElement.append(birdSpan);
   });
   
+  arr = 5
+  console.log(arr, 'arr')
+
 };
+
+// function randomInteger(min, max) {
+//     let rand = min - 0.5 + Math.random() * (max - min + 1);
+//     return Math.round(rand);
+//   }
 
 startLevel(birdsData[level]);
 
@@ -573,24 +591,23 @@ const generateContent = () => {
 const falseAnswerHandler = (li) => {
   const circle = li.querySelector(".li-btn");
   circle.classList.add("false");
-  let score = `<div class="score">Score: 0</div>`;
+  let score = `<div class="score">Score: ${res}</div>`;
   logoScore.innerHTML = score;
   return (arr = arr - 1); 
 };
 
 const trueAnswerHandler = (li) => {
   const circle = li.querySelector(".li-btn");
-  circle.classList.add("true");
-  console.log("мы тут" + circle.dataset.id);
-
-  let score = `<div class="score">Score: ${arr}</div>`;
+  circle.classList.add("true");  
+  res = res + arr
+  let score = `<div class="score">Score: ${res}</div>`;
   logoScore.innerHTML = score;
-
+  
   quizName.textContent = selectedBird.name;
 
   const quizImage = document.querySelector(".plug");
   quizImage.src = selectedBird.image;
-
+  
   //Вставить сюда №1
 };
 
@@ -606,32 +623,42 @@ const trueSound = () => {
   const audio = new Audio();
   audio.src =
     "./mp3/В мире животных с Николаем Дроздовым. Выпуск №46 (online-audio-converter.com)-[AudioTrimmer.com] (1).mp3";
-  audio.autoplay = true;
-  console.log("audio");
+  audio.autoplay = true;  
 };
 
 const falseSound = () => {
   const audio = new Audio();
   audio.src = "./mp3/100-k-1-wrong-answer_B2hZ1idT.mp3";
-  audio.autoplay = true;
-  console.log("audio");
+  audio.autoplay = true;  
 };
 
-function randomInteger(min, max) {
-  let rand = min - 0.5 + Math.random() * (max - min + 1);
-  return Math.round(rand);
-}
+
 
 function togglePlay() {
   let audio = document.querySelector(".quiz__player");
   return audio.paused ? audio.pause() : audio.pause();
 }
 
-disabledButton.onclick = function () {
-  console.log("clickclik");
+disabledButton.onclick = function () {  
   level++;
   if(level === 6){
-    console.log("game over")
+    POPUP1.style.display = 'block'
+
+    if(res === 30){
+        let scorePop = `<p class="scoree">Ваш результат: ${res} из 30 <br><br>Игра пройдена</p>`;
+        scorePopup.innerHTML = scorePop;
+        res = 0
+    } else {
+        let scorePop = `<p class="scoree">Ваш результат: ${res} из 30 <br><br>попробуйте еще раз</p>`;
+        scorePopup.innerHTML = scorePop;
+        res = 0
+    }
+
+    CARD_POPUP1.addEventListener("click", function () {   
+        level = 0
+        startLevel(birdsData[level]);
+        POPUP1.style.display = 'none'
+      });        
   }else {
     startLevel(birdsData[level]);
   }
