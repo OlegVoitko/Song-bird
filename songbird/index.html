@@ -8,72 +8,91 @@
     <title>Document</title>
   </head>
   <body class="body">
-    <header class="header">
-      <div class="wrapper header__wrapper">
-        <div class="logo__score">
-          <div class="logo"></div>
-          <div class="score">
-            <div>Score: 0</div>
+    <div class="wrapperAll">
+      <header class="header">
+        <div class="wrapper header__wrapper">
+          <div class="logo__score">
+            <div class="logo"></div>
+            <div class="score">
+              <div>Score: 0</div>
+            </div>
+          </div>
+          <nav class="header__navigation">
+            <ul class="navigation__birds">
+              <li class="navigation__link">Разминка</li>
+              <li class="navigation__link">Воробьиные</li>
+              <li class="navigation__link">Лесные птицы</li>
+              <li class="navigation__link">Певчие птицы</li>
+              <li class="navigation__link">Хищные птицы</li>
+              <li class="navigation__link">Морские птицы</li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="quiz__question">
+          <div class="wrapper quiz__question__wrapper">
+            <div class="quiz__image">
+              <img class="plug" src="" alt="" />
+            </div>
+            <div class="qiuz__name-player">
+              <div class="quiz__name" id="id2"></div>
+              <!-- <div class="quiz__player"> -->
+              <audio controls class="quiz__player"></audio>
+              <!-- </div> -->
+            </div>
+          </div>
+        </section>
+
+        <section class="quiz__answer">
+          <div class="wrapper quiz__answer__wrapper">
+            <div class="circle__answer">
+              
+              <ul class="answer"></ul>
+            </div>
+
+            <div class="true__answer"></div>
+          </div>
+        </section>
+        <button class="button" id="button">next level</button>
+      </main>
+
+      <footer class="footer">
+        <div class="wrapper footer__wrapper">
+          <div class="git">
+            <a href="https://github.com/OlegVoitko"><img class="github" src="./img/5968866.png" alt="Git"></a>            
+          </div>
+          <div>2022</div>
+          <div class="RS"><img src="./img/rs_school_js.svg" alt="RS"></div>
+        </div>  
+      </footer>
+
+      <!-- modal -->
+      <div id="popup" class="popup">
+        <div class="popup__body">
+          <div class="popup__content">
+            <img src="./img/5cc0e01abe5d2e76189ccb1cb997569f.gif" alt="" />
+            <button class="buttonPopup">START</button>
           </div>
         </div>
-        <nav class="header__navigation">
-          <ul class="navigation__birds">
-            <li class="navigation__link">Разминка</li>
-            <li class="navigation__link">Воробьиные</li>
-            <li class="navigation__link">Лесные птицы</li>
-            <li class="navigation__link">Певчие птицы</li>
-            <li class="navigation__link">Хищные птицы</li>
-            <li class="navigation__link">Морские птицы</li>
-          </ul>
-        </nav>
       </div>
-    </header>
 
-    <section class="quiz__question">
-      <div class="wrapper quiz__question__wrapper">
-        <div class="quiz__image">
-          <img class="plug" src="" alt="" />
+      <div id="popup" class="popup1">
+        <div class="popup__body1">
+          <div class="popup__content1">
+            <img src="./img/11b40409f4192832c8a8124e253631d1.gif" alt="" />
+            <p>Поздравляем!</p>          
+            <div class="addScore"></div>
+            <button class="buttonPopup1">Попробовать еще раз</button>
+          </div>
         </div>
-        <div class="qiuz__name-player">
-          <div class="quiz__name" id="id2"></div>
-          <!-- <div class="quiz__player"> -->
-          <audio controls class="quiz__player"></audio>
-          <!-- </div> -->
-        </div>
-      </div>
-    </section>
-
-    <section class="quiz__answer">
-      <div class="wrapper quiz__answer__wrapper">
-        <div class="circle__answer">
-          
-          <ul class="answer"></ul>
-        </div>
-
-        <div class="true__answer"></div>
-      </div>
-    </section>
-    <button class="button" id="button">next level</button>
-
-    <!-- modal -->
-    <div id="popup" class="popup">
-      <div class="popup__body">
-        <div class="popup__content">
-          <img src="./img/5cc0e01abe5d2e76189ccb1cb997569f.gif" alt="" />
-          <button class="buttonPopup">START</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="popup" class="popup1">
-      <div class="popup__body1">
-        <div class="popup__content1">
-          <img src="./img/11b40409f4192832c8a8124e253631d1.gif" alt="" />
-          <p>Поздравляем!</p>          
-          <div class="addScore"></div>
-          <button class="buttonPopup1">Попробовать еще раз</button>
-        </div>
-      </div>
+      </div>  
+      
+      <!-- <div class="popup2">
+        
+      </div> -->
+      
     </div>
   </body>
   <script src="./script.js"></script>

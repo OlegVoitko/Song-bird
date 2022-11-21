@@ -391,6 +391,7 @@ let arr = 5;
 let res = 0
 let level = 0;
 
+let deleteTrue = false
 // setTimeout("document.getElementById('popup').style.display='block'", 1000);
 
 const POPUP = document.querySelector(".popup");
@@ -420,7 +421,7 @@ const answerHandler = (e) => {
     trueSound();
     togglePlay();
     disabledButton.disabled = false;
-    disabledButton.style.backgroundColor="#00bc8c"
+    disabledButton.style.backgroundColor="#00bc8c"   
   } else {
     falseAnswerHandler(e.target);
     falseSound();
@@ -613,10 +614,10 @@ const trueAnswerHandler = (li) => {
 
 function deleteOnclick() {
   document.querySelectorAll(".answer").forEach((e) => {
-    e.querySelectorAll(".bird__element").forEach((e) => {
-      e.onclick = "";
+    e.querySelectorAll(".bird__element").forEach((e) => {      
+      e.onclick = '';
     });
-  });
+  });  
 }
 
 const trueSound = () => {
@@ -766,3 +767,20 @@ disabledButton.onclick = function () {
 // description.className = 'description'
 // description.textContent = selectedBird.description;
 // trueAnswer.append(description);
+
+// const popup2 = document.querySelector(".popup2");
+// for(let i = 0; i < 1; i++){
+//   for(let j = 0; j < 1; j++){    
+//     let containerPopup2 = ` 
+//       <div class="container__answer">
+//         <img src="${birdsData[i][j].image}" class="img">
+//         <div class="container__answer__flex">
+//           <div class="selectedBirdName">${birdsData[i][j].name}</div>
+//           <div>${birdsData[i][j].species}</div>
+//           <audio class='audio' src="${birdsData[i][j].audio}" controls="controls"></audio>    
+//         </div>
+//       </div>
+//         <div class="description">${birdsData[i][j].description}</div>`;
+//     popup2.append(containerPopup2);  
+//   }
+// }
